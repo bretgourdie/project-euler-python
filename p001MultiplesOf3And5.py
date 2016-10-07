@@ -6,4 +6,5 @@ def sumOfMultiples(below):
 
   return sum
 
-print(str(sumOfMultiples(10)))
+print("10 = " + str(sumOfMultiples(10)))
+print("1000 = " + str(sumOfMultiples(1000)));
