@@ -16,6 +16,7 @@ def findPalindrome (digits):
 			second -= 1
 
 		first -= 1
+		second = limit
 	
 	return maxPalindrome
 
@@ -24,7 +25,7 @@ def isPalindrome (number):
 
 	return list(strNumber) == list(reversed(strNumber))
 
-testCases = [2]
+testCases = [2, 3]
 
 for num in testCases:
 	print("The max palindrome for " + str(num) + " is " + str(findPalindrome(num)))
