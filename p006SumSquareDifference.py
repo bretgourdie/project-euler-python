@@ -9,7 +9,7 @@ def sumSquareDifference(limit):
 	
 	return squareOfSums - sumOfSquares
 
-tests = [10]
+tests = [10, 100]
 
 for num in tests:
 	print("The difference between the sum of the squares of the first " 
