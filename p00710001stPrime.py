@@ -5,7 +5,7 @@ def getPrime(xth):
 
 	return primes[xth-1]
 
-tests = [6]
+tests = [6, 10001]
 
 for num in tests:
 	print("Prime number " + str(num) + " is " + str(getPrime(num)))
