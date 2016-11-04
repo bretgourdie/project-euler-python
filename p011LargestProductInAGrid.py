@@ -1,3 +1,27 @@
+def getCurrentProduct(grid, adjacentNumbers, idx, jdx, idxDirection, jdxDirection):
+	curProduct = 1
+
+	for count in range(adjacentNumbers):
+		curIdx = idx + count * idxDirection
+		curJdx = jdx + count * jdxDirection
+		strNum = grid[curIdx][curJdx]
+		num = int(strNum)
+		curProduct *= num
+
+	return curProduct
+
+def calcDownProduct(grid, adjacentNumbers, idx, jdx):
+	return getCurrentProduct(grid, adjacentNumbers, idx, jdx, 1, 0)
+
+def calcRightProduct(grid, adjacentNumbers, idx, jdx):
+	return getCurrentProduct(grid, adjacentNumbers, idx, jdx, 0, 1)
+
+def calcDownRightProduct(grid, adjacentNumbers, idx, jdx):
+	return getCurrentProduct(grid, adjacentNumbers, idx, jdx, 1, 1)
+
+def calcUpRightProduct(grid, adjacentNumbers, idx, jdx):
+	return getCurrentProduct(grid, adjacentNumbers, idx, jdx, -1, 1)
+
 def greatestProduct(adjacentNumbers):
 	strGrid = \
 """\
@@ -34,36 +58,23 @@ def greatestProduct(adjacentNumbers):
 		for jdx,strCol in enumerate(strLine):
 			# right
 			if jdx <= len(strLine) - adjacentNumbers:
-				curProduct = 1
-				for rightCount in range(adjacentNumbers):
-					curProduct *= int(grid[idx][jdx+rightCount])
-
+				curProduct = calcRightProduct(grid, adjacentNumbers, idx, jdx)
 				maxProduct = max(maxProduct, curProduct)
 
 			# down
 			if idx <= len(grid) - adjacentNumbers:
-				curProduct = 1
-				for downCount in range(adjacentNumbers):
-					curProduct *= int(grid[idx+downCount][jdx])
-
+				curProduct = calcDownProduct(grid, adjacentNumbers, idx, jdx)
 				maxProduct = max(maxProduct, curProduct)
 
 			# diag up-right
 			if idx >= adjacentNumbers - 1 and jdx <= len(strLine) - adjacentNumbers:
-				curProduct = 1
-				for upRightCount in range(adjacentNumbers):
-					curProduct *= int(grid[idx-upRightCount][jdx+upRightCount])
-
+				curProduct = calcUpRightProduct(grid, adjacentNumbers, idx, jdx)
 				maxProduct = max(maxProduct, curProduct)
 
 			# diag down-right
 			if idx <= len(grid) - adjacentNumbers and jdx <= len(strLine) - adjacentNumbers:
-				curProduct = 1
-				for downRightCount in range(adjacentNumbers):
-					curProduct *= int(grid[idx+downRightCount][jdx+downRightCount])
-
+				curProduct = calcDownRightProduct(grid, adjacentNumbers, idx, jdx)
 				maxProduct = max(maxProduct, curProduct)
-
 
 	return maxProduct
 
