@@ -19,7 +19,7 @@ def getTriangleNumber(numDivisors):
 	
 	return curTriangleNumber
 
-tests = [5]
+tests = [5, 500]
 
 for num in tests:
 	print("The value of the first triange number to have over " + str(num) + " divisors is "\
