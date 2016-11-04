@@ -2,7 +2,7 @@ def longestCollatz(below):
 	longestSeq = -1
 	longestTerm = 1
 
-	for ii in range(1, below+1):
+	for ii in range(1, below, 2):
 		curSeq = 1
 		curTerm = ii
 
@@ -19,7 +19,7 @@ def longestCollatz(below):
 	
 	return longestTerm
 
-tests = [14]
+tests = [14, 1000000]
 
 for num in tests:
 	print("The longest chain for numbers under " + str(num) + " is " + str(longestCollatz(num)))
