@@ -1,5 +1,11 @@
+import prime
+
 def primesSum(below):
-	return -1
+	primes = prime.getPrimes(below)
+
+	total = sum(primes)
+
+	return total
 
 tests = [10]
 
