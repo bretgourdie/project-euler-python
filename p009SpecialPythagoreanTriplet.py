@@ -7,7 +7,7 @@ def getPythTriplet(total):
 	
 	return -1
 
-tests = [12]
+tests = [12, 1000]
 
 for num in tests:
 	print("The product for a+b+c=" + str(num) + " is " + str(getPythTriplet(num)))
