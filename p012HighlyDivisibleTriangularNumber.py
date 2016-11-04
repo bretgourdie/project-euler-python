@@ -1,5 +1,23 @@
+import math
+
 def getTriangleNumber(numDivisors):
-	return -1
+	foundTriangleNumber = False
+	startingNumber = 0
+
+	while not foundTriangleNumber:
+		startingNumber += 1
+		curTriangleNumber = 0
+		for ii in range(1, startingNumber+1):
+			curTriangleNumber += ii
+
+		numFoundDivisors = 0
+		for ii in range(1, curTriangleNumber+1):
+			if curTriangleNumber % ii == 0:
+				numFoundDivisors += 1
+
+		foundTriangleNumber = numFoundDivisors >= numDivisors
+	
+	return curTriangleNumber
 
 tests = [5]
 
