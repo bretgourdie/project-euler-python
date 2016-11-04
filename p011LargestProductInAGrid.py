@@ -67,12 +67,14 @@ def greatestProduct(adjacentNumbers):
 				maxProduct = max(maxProduct, curProduct)
 
 			# diag up-right
-			if idx >= adjacentNumbers - 1 and jdx <= len(strLine) - adjacentNumbers:
+			if idx >= adjacentNumbers - 1 \
+			and jdx <= len(strLine) - adjacentNumbers:
 				curProduct = calcUpRightProduct(grid, adjacentNumbers, idx, jdx)
 				maxProduct = max(maxProduct, curProduct)
 
 			# diag down-right
-			if idx <= len(grid) - adjacentNumbers and jdx <= len(strLine) - adjacentNumbers:
+			if idx <= len(grid) - adjacentNumbers \
+			and jdx <= len(strLine) - adjacentNumbers:
 				curProduct = calcDownRightProduct(grid, adjacentNumbers, idx, jdx)
 				maxProduct = max(maxProduct, curProduct)
 
