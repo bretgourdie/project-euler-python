@@ -8,7 +8,7 @@ def findPaths(length, width):
 	
 	return findPaths(length - 1, width) + findPaths(length, width - 1)
 	
-tests = [2]
+tests = [2, 20]
 
 for num in tests:
 	print("A " + str(num) + "x" + str(num) + " grid has " + str(findPaths(num, num)) + " paths.")
