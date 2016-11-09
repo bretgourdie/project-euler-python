@@ -9,6 +9,6 @@ def powerDigitSum(exponent):
 	
 	return sum
 	
-tests = [15]
+tests = [15, 1000]
 for num in tests:
 	print("The sum of the digits of 2^{} = {}".format(num, powerDigitSum(num)))
