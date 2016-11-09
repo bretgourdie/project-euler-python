@@ -22,7 +22,7 @@ def findPaths(length, width):
 	
 	return lengthPaths + widthPaths
 	
-tests = [2]
+tests = [2, 20]
 triedPaths = {}
 
 for num in tests:
