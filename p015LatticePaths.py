@@ -6,8 +6,8 @@ def findPaths(length, width):
 	if length == 0 and width == 0:
 		return 1
 
-	lengthKey = str(length - 1) + "," + str(width)
-	widthKey = str(length) + "," + str(width - 1)
+	lengthKey = (length-1, width)
+	widthKey = (length, width-1)
 	
 	if lengthKey in triedPaths:
 		lengthPaths = triedPaths[lengthKey]
