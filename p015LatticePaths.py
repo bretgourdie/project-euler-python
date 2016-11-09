@@ -5,22 +5,16 @@ def findPaths(length, width):
 	
 	if length == 0 and width == 0:
 		return 1
+	
+	key = (length, width)
 
-	lengthKey = (length-1, width)
-	widthKey = (length, width-1)
-	
-	if lengthKey in triedPaths:
-		lengthPaths = triedPaths[lengthKey]
+	if key in triedPaths:
+		paths = triedPaths[key]
 	else:
-		lengthPaths = findPaths(length - 1, width)
-		triedPaths[lengthKey] = lengthPaths
-	if widthKey in triedPaths:
-		widthPaths = triedPaths[widthKey]
-	else:
-		widthPaths = findPaths(length, width - 1)
-		triedPaths[widthKey] = widthPaths
+		paths = findPaths(length - 1, width) + findPaths(length, width - 1)
+		triedPaths[key] = paths
 	
-	return lengthPaths + widthPaths
+	return paths
 	
 tests = [2, 20]
 triedPaths = {}
