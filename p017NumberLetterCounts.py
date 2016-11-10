@@ -68,7 +68,7 @@ def getTensDigit(num, nextDigit):
 		}
 	
 	ten = tens[num]
-	if isInstance(ten, str):
+	if isinstance(ten, str):
 		return ten
 	else:
 		return ten[nextDigit]
