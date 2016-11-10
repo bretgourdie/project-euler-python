@@ -8,91 +8,90 @@ def getNumberLetterCount(toNum):
 		strNum = str(ii)
 
 		while len(strNum) > 0:
-			numLetters = 0
+			curStrNum = ""
 			curNum = strNum[0]
-			print("curNum = " + curNum)
 
 			if len(strNum) == 4:
-				numLetters += getThousandsDigit(curNum, ii % 1000 != 0)
-				strNum = "0"
-				print("Got thousands digit as " + str(numLetters))
+				curStrNum += getThousandsDigit(curNum)
 			elif len(strNum) == 3:
-				numLetters += getHundredsDigit(curNum, ii % 100 != 0)
-				print("Got hundreds digit as " + str(numLetters))
+				curStrNum += getHundredsDigit(curNum, ii % 100 != 0)
 			elif len(strNum) == 2:
-				numLetters += getTensDigit(curNum, strNum[1])
-				print("Got tens digit as " + str(numLetters))
+				curStrNum += getTensDigit(curNum, strNum[1])
 			elif len(strNum) == 1:
-				numLetters += getOnesDigit(curNum)
-				print("Got ones digit as " + str(numLetters))
+				curStrNum += getOnesDigit(curNum)
 
 			strNum = strNum[1:]
 
-		sumLetters += numLetters
+		print("Written out as " + curStrNum)
+		sumLetters += len(curStrNum)
 	
 	return sumLetters
 
 def getOnesDigit(num):
-	num = int(num)
-	wordLetters = 0
-	if num == 1 or num == 2 or num == 6:
-		wordLetters = 3
-	elif num == 4 or num == 5 or num == 9:
-		wordLetters = 4
-	elif num == 3 or num == 7 or num == 8:
-		wordLetters = 5
+	ones = {
+		"1": "one",
+		"2": "two",
+		"3": "three",
+		"4": "four",
+		"5": "five",
+		"6": "six",
+		"7": "seven",
+		"8": "eight",
+		"9": "nine"
+		}
 	
-	return wordLetters
+	return ones[num]
 
 def getTensDigit(num, nextDigit):
-	num = int(num)
-	wordLetters = 0
-	if num == 1:
-		# peek at next digit
-		nextDigit = int(nextDigit)
-		if nextDigit == 1 or nextDigit == 2:
-			wordLetters = 6
-		if nextDigit == 3 or nextDigit == 8:
-			wordLetters = 8
-		if nextDigit == 5:
-			wordLetters = len("fifteen")
-		else:
-			wordLetters = getOnesDigit(num) + len("teen")
-	if (num >= 2 and num <= 4) or num == 8 or num == 9:
-		wordLetters = 6
-	elif num == 5 or num == 6:
-		wordLetters = 5
-	elif num == 7:
-		wordLetters = 7
+	teens = {
+		"0": "ten",
+		"1": "eleven",
+		"2": "twelve",
+		"3": "thirteen",
+		"4": "fourteen",
+		"5": "fifteen",
+		"6": "sixteen",
+		"7": "seventeen",
+		"8": "eighteen",
+		"9": "nineteen"
+		}
+	tens = {
+		"1": teens,
+		"2": "twenty",
+		"3": "thirty",
+		"4": "fourty",
+		"5": "fifty",
+		"6": "sixty",
+		"7": "seventy",
+		"8": "eighty",
+		"9": "ninety"
+		}
 	
-	return wordLetters
+	ten = tens[num]
+	if isInstance(ten, str):
+		return ten
+	else:
+		return ten[nextDigit]
 
 def getHundredsDigit(num, useAnd):
-	num = int(num)
-	single = getOnesDigit(num)
-
-	hundred = len("hundred")
-
-	if useAnd:
-		iAnd = len("and")
-	else:
-		iAnd = 0
-
-	return single + hundred + iAnd
-
-def getThousandsDigit(num, useAnd):
-	num = int(num)
-	single = getOnesDigit(num)
-
-	thousand = len("thousand")
-
-	if useAnd:
-		iAnd = len("and")
-	else:
-		iAnd = 0
+	if num <= 0:
+		return ""
 	
-	return single + thousand + iAnd
+	one = getOnesDigit(num)
 
-tests = [5, 1000]
+	if useAnd:
+		strAnd = "and"
+	else:
+		strAnd = ""
+	
+	return one + "hundred" + strAnd
+
+def getThousandsDigit(num):
+	if num <= 0:
+		return ""
+	
+	return getOnesDigit(num) + "thousand"
+
+tests = [5]
 for num in tests:
 	print("The number of letters from 1 to {} is {}".format(num, getNumberLetterCount(num)))
