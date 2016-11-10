@@ -75,7 +75,7 @@ def getTensDigit(num, nextDigit):
 		return ten[nextDigit]
 
 def getHundredsDigit(num, useAnd):
-	if num <= 0:
+	if num == "0":
 		return ""
 	
 	one = getOnesDigit(num)
@@ -88,7 +88,7 @@ def getHundredsDigit(num, useAnd):
 	return one + "hundred" + strAnd
 
 def getThousandsDigit(num):
-	if num <= 0:
+	if num == "0":
 		return ""
 	
 	return getOnesDigit(num) + "thousand"
