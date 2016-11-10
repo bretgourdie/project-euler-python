@@ -19,7 +19,7 @@ def getNumberLetterCount(toNum):
 				numLetters += getHundredsDigit(curNum, ii % 100 != 0)
 				print("Got hundreds digit as " + str(numLetters))
 			if len(strNum) == 2:
-				numLetters += getTensDigit(curNum)
+				numLetters += getTensDigit(curNum, strNum[1])
 				print("Got tens digit as " + str(numLetters))
 			if len(strNum) == 1:
 				numLetters += getOnesDigit(curNum)
@@ -43,11 +43,20 @@ def getOnesDigit(num):
 	
 	return wordLetters
 
-def getTensDigit(num):
+def getTensDigit(num, nextDigit):
 	num = int(num)
 	wordLetters = 0
 	if num == 1:
-		return 6
+		# peek at next digit
+		nextDigit = int(nextDigit)
+		if nextDigit == 1 or nextDigit == 2:
+			wordLetters = 6
+		if nextDigit == 3 or nextDigit == 8:
+			wordLetters = 8
+		if nextDigit == 5:
+			wordLetters = len("fifteen")
+		else:
+			wordLetters = getOnesDigit(num) + len("teen")
 	if (num >= 2 and num <= 4) or num == 8 or num == 9:
 		wordLetters = 6
 	elif num == 5 or num == 6:
