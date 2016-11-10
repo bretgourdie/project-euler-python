@@ -92,6 +92,6 @@ def getThousandsDigit(num):
 	
 	return getOnesDigit(num) + "thousand"
 
-tests = [5]
+tests = [5, 1000]
 for num in tests:
 	print("The number of letters from 1 to {} is {}".format(num, getNumberLetterCount(num)))
