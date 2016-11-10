@@ -4,7 +4,6 @@ def getNumberLetterCount(toNum):
 	sumLetters = 0
 
 	for ii in range(1, toNum+1):
-		print("Processing " + str(ii))
 		strNum = str(ii)
 
 		curStrNum = ""
@@ -25,7 +24,6 @@ def getNumberLetterCount(toNum):
 
 			strNum = strNum[1:]
 
-		print("Written out as \"{}\"; {} + {} = {}".format(curStrNum, sumLetters, len(curStrNum), sumLetters + len(curStrNum)))
 		sumLetters += len(curStrNum)
 	
 	return sumLetters
