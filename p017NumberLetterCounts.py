@@ -7,8 +7,8 @@ def getNumberLetterCount(toNum):
 		print("Processing " + str(ii))
 		strNum = str(ii)
 
+		curStrNum = ""
 		while len(strNum) > 0:
-			curStrNum = ""
 			curNum = strNum[0]
 
 			if len(strNum) == 4:
