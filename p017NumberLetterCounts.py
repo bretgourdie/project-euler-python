@@ -8,6 +8,7 @@ def getNumberLetterCount(toNum):
 		strNum = str(ii)
 
 		curStrNum = ""
+		teen = False
 		while len(strNum) > 0:
 			curNum = strNum[0]
 
@@ -17,12 +18,14 @@ def getNumberLetterCount(toNum):
 				curStrNum += getHundredsDigit(curNum, ii % 100 != 0)
 			elif len(strNum) == 2:
 				curStrNum += getTensDigit(curNum, strNum[1])
+				teen = curNum == "1"
 			elif len(strNum) == 1:
-				curStrNum += getOnesDigit(curNum)
+				if not teen:
+					curStrNum += getOnesDigit(curNum)
 
 			strNum = strNum[1:]
 
-		print("Written out as " + curStrNum)
+		print("Written out as \"{}\"; {} + {} = {}".format(curStrNum, sumLetters, len(curStrNum), sumLetters + len(curStrNum)))
 		sumLetters += len(curStrNum)
 	
 	return sumLetters
