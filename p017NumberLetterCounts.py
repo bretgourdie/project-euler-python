@@ -14,14 +14,15 @@ def getNumberLetterCount(toNum):
 
 			if len(strNum) == 4:
 				numLetters += getThousandsDigit(curNum, ii % 1000 != 0)
+				strNum = "0"
 				print("Got thousands digit as " + str(numLetters))
-			if len(strNum) == 3:
+			elif len(strNum) == 3:
 				numLetters += getHundredsDigit(curNum, ii % 100 != 0)
 				print("Got hundreds digit as " + str(numLetters))
-			if len(strNum) == 2:
+			elif len(strNum) == 2:
 				numLetters += getTensDigit(curNum, strNum[1])
 				print("Got tens digit as " + str(numLetters))
-			if len(strNum) == 1:
+			elif len(strNum) == 1:
 				numLetters += getOnesDigit(curNum)
 				print("Got ones digit as " + str(numLetters))
 
@@ -64,7 +65,7 @@ def getTensDigit(num, nextDigit):
 	elif num == 7:
 		wordLetters = 7
 	
-	return wordletters
+	return wordLetters
 
 def getHundredsDigit(num, useAnd):
 	num = int(num)
@@ -92,6 +93,6 @@ def getThousandsDigit(num, useAnd):
 	
 	return single + thousand + iAnd
 
-tests = [5]
+tests = [5, 1000]
 for num in tests:
 	print("The number of letters from 1 to {} is {}".format(num, getNumberLetterCount(num)))
