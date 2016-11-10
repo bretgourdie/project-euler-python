@@ -57,6 +57,7 @@ def getTensDigit(num, nextDigit):
 		"9": "nineteen"
 		}
 	tens = {
+		"0": "",
 		"1": teens,
 		"2": "twenty",
 		"3": "thirty",
