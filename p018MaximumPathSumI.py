@@ -48,7 +48,28 @@ def genSecondTest():
 """
 
 def genTree(strTriangle):
+	splitTriangle = strTriangle.splitlines()
+	splitTriangle.reverse()
+	numElements = splitTriangle[0].count(' ') + 1
+	nextLineQueue = []
+	queue = []
+	for line in splitTriangle:
+		elements = line.split(' ')
+
+		for elm in elements:
+			curLeft = None
+			curRight = None
+			if len(queue) > 0:
+				curLeft = queue.pop(0)
+				curRight = queue[0]
+			
+			tree = Tree(int(elm), curLeft, curRight)
+			nextLineQueue.append(tree)
+			
+		queue = list(nextLineQueue)
+		nextLineQueue = []
 	
+	return tree
 
 tests = [1]
 for num in tests:
