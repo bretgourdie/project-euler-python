@@ -16,6 +16,16 @@ def findMaxPath(test):
 	
 	triangle = genTree(strTriangle)
 
+	findMaxPath(triangle, 0)
+
+def findMaxPathRecursive(tree):
+	if tree is None:
+		return 0
+	
+	leftMax = findMaxPathRecursive(tree.left)
+	rightMax = findMaxPathRecursive(tree.right)
+
+	return max(leftMax, rightMax) + tree.value
 
 def genFirstTest():
 	strTree = \
@@ -46,6 +56,7 @@ def genSecondTest():
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23\
 """
+	return strTree
 
 def genTree(strTriangle):
 	splitTriangle = strTriangle.splitlines()
