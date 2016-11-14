@@ -16,7 +16,7 @@ def findMaxPath(test):
 	
 	triangle = genTree(strTriangle)
 
-	findMaxPathRecursive(triangle)
+	return findMaxPathRecursive(triangle)
 
 def findMaxPathRecursive(tree):
 	if tree is None:
