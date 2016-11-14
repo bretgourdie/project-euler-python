@@ -82,6 +82,6 @@ def genTree(strTriangle):
 	
 	return tree
 
-tests = [1]
+tests = [1, 2]
 for num in tests:
 	print("The maximum total from top to bottom of test {} is {}".format(num, findMaxPath(num)))
