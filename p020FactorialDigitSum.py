@@ -1,5 +1,13 @@
+from math import factorial
+
 def factorialSumDigits(num):
-	return -1
+	fact = factorial(num)
+	
+	sum = 0
+	for letter in str(fact):
+		sum += int(letter)
+
+	return sum
 
 tests = [10]
 
