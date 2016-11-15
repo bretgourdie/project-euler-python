@@ -14,24 +14,12 @@ def getNumSundays(year):
 		11 : 31 
 	}
 
-	daysOfWeek = {
-		0 : "Monday",
-		1 : "Tuesday",
-		2 : "Wednesday",
-		3 : "Thursday",
-		4 : "Friday",
-		5 : "Saturday",
-		6 : "Sunday"
-	}
-
 	dayOfWeek = 1 # Jan 1 of "year" must be a Tuesday
 	monthOfYear = 0 # Start in January
 	numSundays = 0
 	leapYearDay = 0
 
 	while year < 2001:
-		print("{}/1/{}; {}".format(monthOfYear+1, year, daysOfWeek[dayOfWeek]))
-		
 		if dayOfWeek == 6:
 			numSundays += 1
 		
