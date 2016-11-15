@@ -36,7 +36,7 @@ def getNumSundays(year):
 	return numSundays
 
 
-tests = [1991]
+tests = [1991, 1901]
 
 for num in tests:
 	print("The number of Sundays in {} falling on the first of the month is {}".format(num, getNumSundays(num)))
