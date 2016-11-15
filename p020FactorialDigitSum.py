@@ -9,7 +9,7 @@ def factorialSumDigits(num):
 
 	return sum
 
-tests = [10]
+tests = [10, 100]
 
 for num in tests:
 	print("The sum of the factorial digits in {} is {}".format(num, factorialSumDigits(num)))
