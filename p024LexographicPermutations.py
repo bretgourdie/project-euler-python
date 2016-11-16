@@ -1,7 +1,9 @@
-def getLexographicPermutations(digits):
-	permutations = []
+from itertools import permutations
 
-	return sorted(permutations)
+def getLexographicPermutations(digits):
+	perms = permutations(digits)
+
+	return sorted(perms)
 
 tests = ["012"]
 for digits in tests:
