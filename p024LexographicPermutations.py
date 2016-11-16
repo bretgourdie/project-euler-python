@@ -5,6 +5,7 @@ def getLexographicPermutations(digits):
 
 	return sorted(perms)
 
-tests = ["012"]
+tests = [("012", 4)]
 for digits in tests:
-	print("The permutations of {} are {}".format(digits, getLexographicPermutations(digits)))
+	print("The {}th permutation of {} is {}".format(\
+	digits[1], digits[0], getLexographicPermutations(digits[0])[digits[1]-1]))
