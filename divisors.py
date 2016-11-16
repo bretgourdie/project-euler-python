@@ -18,10 +18,7 @@ def findDivisors(num):
 
 def findProperDivisors(num):
 	divisors = findDivisors(num)
-	
 	if num in divisors:
 		divisors.remove(num)
-	else:
-		print("{} not in {}!".format(num, divisors))
 
 	return divisors
