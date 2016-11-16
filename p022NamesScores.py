@@ -13,7 +13,7 @@ def getNameScores(nameFile):
 	for ii,name in enumerate(lNameList):
 		nameScore = 0
 		for letter in name:
-			nameScore += ord(letter) - ord('@')
+			nameScore += ord(letter) - ord('A') + 1
 		score += nameScore * (ii+1)
 	return score
 
