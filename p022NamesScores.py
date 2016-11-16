@@ -8,10 +8,9 @@ def getNameScores(nameFile):
 	
 	lNameList = lNameFile[0]
 	
-	sorted(lNameList)
+	lNameList.sort()
 
 	for ii,name in enumerate(lNameList):
-		print(name, end=": ")
 		nameScore = 0
 		for letter in name:
 			nameScore += ord(letter) - ord('@')
