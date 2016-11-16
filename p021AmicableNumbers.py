@@ -6,10 +6,11 @@ def sumAmicableNumbers(limit):
 		curProperDivisors = findProperDivisors(ii)
 		curSum = sum(curProperDivisors)
 		
-		sumProperDivisors = findProperDivisors(curSum)
-		
-		if sum(sumProperDivisors) == ii:
-			sumAmicable += curSum
+		if curSum != ii:
+			sumProperDivisors = findProperDivisors(curSum)
+
+			if sum(sumProperDivisors) == ii:
+				sumAmicable += ii
 	
 	return sumAmicable
 
