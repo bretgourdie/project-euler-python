@@ -13,6 +13,6 @@ def sumAmicableNumbers(limit):
 	
 	return sumAmicable
 
-tests = [285]
+tests = [285, 10000]
 for num in tests:
 	print("The sum of all amicable numbers below {} is {}".format(num, sumAmicableNumbers(num)))
