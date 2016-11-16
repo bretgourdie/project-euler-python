@@ -1,5 +1,17 @@
+from divisors import findProperDivisors
+
 def sumAmicableNumbers(limit):
-	return -1
+	sumAmicable = 0
+	for ii in range(1, limit):
+		curProperDivisors = findProperDivisors(ii)
+		curSum = sum(curProperDivisors)
+		
+		sumProperDivisors = findProperDivisors(curSum)
+		
+		if sum(sumProperDivisors) == ii:
+			sumAmicable += curSum
+	
+	return sumAmicable
 
 tests = [285]
 for num in tests:
