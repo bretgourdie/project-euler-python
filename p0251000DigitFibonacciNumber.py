@@ -11,6 +11,6 @@ def findFiboIndex(numDigits):
 	
 	return index
 
-tests = [3]
+tests = [3, 1000]
 for num in tests:
 	print("The first index to contain {} digits is {}".format(num, findFiboIndex(num)))
