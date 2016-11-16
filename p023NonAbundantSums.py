@@ -1,4 +1,5 @@
 from divisors import findProperDivisors
+from subsetsum import findSubsetSum
 
 def findNonAbundantSums(num):
 	abundantSums = 0
@@ -8,6 +9,10 @@ def findNonAbundantSums(num):
 		divisors = findProperDivisors(ii)
 		if sum(divisors) > ii:
 			abundantNums.append(ii)
+	
+	for ii in range(1, num+1):
+		if findSubsetSum(abundantNums, ii) == 0:
+			abundantSums += ii
 	
 	return abundantSums
 
