@@ -1,20 +1,24 @@
 from divisors import findProperDivisors
-from subsetsum import findSubsetSum
 
 def findNonAbundantSums(num):
-	abundantSums = 0
+	abundantSum = 0
 	
 	abundantNums = []
-	for ii in range(1, (num+1) // 2):
-		divisors = findProperDivisors(ii)
-		if sum(divisors) > ii:
-			abundantNums.append(ii)
+	for abundantNumCandidate in range(1, num+1):
+		divisors = findProperDivisors(abundantNumCandidate)
+		if sum(divisors) > abundantNumCandidate:
+			abundantNums.append(abundantNumCandidate)
+	
+	abundantSums = {}
+	for fNum in abundantNums:
+		for sNum in abundantNums:
+			abundantSums[fNum + sNum] = True
 	
 	for ii in range(1, num+1):
-		if findSubsetSum(abundantNums, ii) == 0:
-			abundantSums += ii
-	
-	return abundantSums
+		if ii not in abundantSums:
+			abundantSum += ii
+
+	return abundantSum
 
 tests = [28123]
 for num in tests:
