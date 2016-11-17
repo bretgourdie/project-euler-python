@@ -40,6 +40,6 @@ def generateGrid(dimension):
 	
 	return grid
 		
-tests = [5]
+tests = [5, 1001]
 for num in tests:
 	print("The sum of the numbers on the diagonals of a {}x{} spiral is {}".format(num, num, sumDiagonals(num)))
