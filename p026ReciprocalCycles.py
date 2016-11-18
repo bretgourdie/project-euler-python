@@ -27,6 +27,6 @@ def findLongestCycle(toNum):
 
 	return maxD
 
-tests = [11]
+tests = [11, 1000]
 for num in tests:
 	print("The value of d with the longest recurring cycle where d < {} is {}".format(num, findLongestCycle(num)))
