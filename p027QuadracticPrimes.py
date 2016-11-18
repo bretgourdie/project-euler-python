@@ -5,16 +5,16 @@ def findQuadExp(limit):
 	product = -1
 	
 	primes = getPrimes(limit ** 2 + 999 * limit + 1000)
+	dPrimes = dict(zip(primes, [True] * len(primes)))
 	
 	for a in range(limit):
 		for b in range(limit + 1):
 			primeCount = 0
 			for n in range(limit+1):
 				num = n ** 2 + a * n + b
-				if num in primes:
+				if num in dPrimes:
 					primeCount += 1
 					
-			
 			if primeCount > maxNumPrimes:
 				maxNumPrimes = primeCount
 				product = a * b
