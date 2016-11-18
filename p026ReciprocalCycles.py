@@ -1,5 +1,3 @@
-from decimal import *
-
 def findLongestCycle(toNum):
 	maxD = -1
 	maxDLen = -1
