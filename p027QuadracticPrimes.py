@@ -21,6 +21,6 @@ def findQuadExp(limit):
 			
 	return product
 
-tests = [41]
+tests = [41, 1000]
 for num in tests:
 	print("The product producing the maximum number of primes where n <= {} is {}".format(num, findQuadExp(num)))
