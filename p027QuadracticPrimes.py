@@ -4,7 +4,8 @@ def findQuadExp(limit):
 	maxNumPrimes = -1
 	product = -1
 	
-	primes = getPrimes(limit ** 2 + 999 * limit + 1000)
+	primes = getPrimes(limit ** 2 + limit -1 * limit + limit)
+	# convert list to dict for quick lookup
 	dPrimes = dict(zip(primes, [True] * len(primes)))
 	
 	for a in range(limit):
