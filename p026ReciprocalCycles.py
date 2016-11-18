@@ -1,36 +1,31 @@
 from decimal import *
 
-class Trie:
-	def __init__(self, value=None, substrings=None):
-		self.value = value
-		self.substrings = substrings
-	
-	def __str__(self):
-		if substrings == None:
-			return self.value
-		else:
-			return substrings
-
 def findLongestCycle(toNum):
+	maxD = -1
+	maxDLen = -1
+
 	for num in range(2, toNum):
-		fraction = Decimal(1) / Decimal(num)
-
-		sFraction = str(fraction)
-
-		if sFraction[:2] == "0.":
-			sFraction = sFraction[2:]
-
-		print("Fraction part = {}".format(sFraction))
+		foundCycle = False
+		terminated = False
+		remainderList = []
+		remainder = 1
+		while not foundCycle and not terminated:
+			while remainder < num:
+				remainder *= 10
+			
+			remainder %= num
+			terminated = remainder == 0
+			foundCycle = remainder in remainderList
+			remainderList.append(remainder)
 		
-		trie = createTrie(sFraction)
-	
-	return -1
+		if foundCycle:
+			firstIndex = remainderList.index(remainderList[-1])
+			length = len(remainderList) - firstIndex - 1
+			if length > maxDLen:
+				maxD = num
+				maxDLen = length
 
-def createTrie(fraction):
-	tFraction = fraction + "$"
-	root = Trie(value="")
-
-
+	return maxD
 
 tests = [11]
 for num in tests:
