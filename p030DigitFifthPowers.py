@@ -16,6 +16,6 @@ def digitPowers(numDigits):
 	
 	return sumDigitPowers
 
-tests = [4]
+tests = [4, 5]
 for num in tests:
 	print("The sum of the numbers that can be written as the sum of {}th powers of their digits is {}".format(num, digitPowers(num)))
