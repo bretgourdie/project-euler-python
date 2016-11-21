@@ -1,9 +1,8 @@
 def digitPowers(numDigits):
 	limit = 10 ** numDigits
-	begin = 10 ** (numDigits - 1)
 	sumDigitPowers = 0
 
-	for ii in range(begin, limit):
+	for ii in range(2, limit):
 		curSum = 0
 		curNum = ii
 		for num in range(numDigits):
@@ -13,6 +12,7 @@ def digitPowers(numDigits):
 
 		if curSum == ii:
 			sumDigitPowers += ii
+			print("{}; {}".format(ii, sumDigitPowers))
 	
 	return sumDigitPowers
 
