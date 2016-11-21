@@ -12,7 +12,6 @@ def digitPowers(numDigits):
 
 		if curSum == ii:
 			sumDigitPowers += ii
-			print("{}; {}".format(ii, sumDigitPowers))
 	
 	return sumDigitPowers
 
