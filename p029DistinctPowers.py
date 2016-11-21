@@ -9,6 +9,6 @@ def numDistinctPowers(limit):
 	
 	return len(numList)
 
-tests = [5]
+tests = [5, 100]
 for num in tests:
 	print("The number of distinct terms for a^b where 2 <= a <= {} and 2 <= b <= {} is {}".format(num, num, numDistinctPowers(num)))
