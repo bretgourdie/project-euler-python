@@ -1,11 +1,11 @@
 def digitPowers(numDigits):
-	limit = 10 ** numDigits
+	limit = 10 ** (numDigits+1)
 	sumDigitPowers = 0
 
 	for ii in range(2, limit):
 		curSum = 0
 		curNum = ii
-		for num in range(numDigits):
+		while curNum > 0:
 			curDigit = curNum % 10
 			curNum //= 10
 			curSum += curDigit ** numDigits
