@@ -8,8 +8,8 @@ def findQuadExp(limit):
 	# convert list to dict for quick lookup
 	dPrimes = dict(zip(primes, [True] * len(primes)))
 	
-	for a in range(limit):
-		for b in range(limit + 1):
+	for a in range(-1 * limit + 1, limit):
+		for b in range(-1 * limit, limit + 1):
 			primeCount = 0
 			for n in range(limit+1):
 				num = n ** 2 + a * n + b
