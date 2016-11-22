@@ -9,8 +9,9 @@ def findDigitFactorials():
 			curSum += factorial(int(digit))
 
 		if curSum == num:
+			print(num)
 			iSum += num
 
 	return iSum
 
-print("The sum of all numbers which are equal to the sum of the factorial of their digits is {}".format(findDigitFactorials())
+print("The sum of all numbers which are equal to the sum of the factorial of their digits is {}".format(findDigitFactorials()))
