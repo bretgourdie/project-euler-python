@@ -13,12 +13,11 @@ def checkPandigital(multiplicand, multiplier, product):
 def getPandigitalSum():
 	dResults = {}
 
-	for multiplicand in range(1, 987654321):
-		for multiplier in range(1, 493827161):
+	for multiplicand in range(2, 9999):
+		for multiplier in range(2, 9999):
 			product = multiplicand * multiplier
 			if checkPandigital(multiplicand, multiplier, product):
 				dResults[product] = (multiplicand, multiplier)
-	
 	
 	keys = dResults.keys()
 
