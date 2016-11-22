@@ -31,7 +31,12 @@ def findCancellingFractions(numToFind):
 		num *= fracs[0]
 		dem *= fracs[1]
 	
-	return (num, dem)
+	return reduceFraction(num, dem)
+
+def reduceFraction(num, dem):
+	for ii in range(num, 1, -1):
+		if num % ii == 0 and dem % ii == 0:
+			return dem//ii
 
 tests = [4]
 for num in tests:
