@@ -2,11 +2,15 @@ from collections import defaultdict
 
 def checkPandigital(multiplicand, multiplier, product):
 	sRes = str(product) + str(multiplicand) + str(multiplier)
-	nums = "123456789"
+	nums = "0123456789"
 
 	for num in nums:
-		if sRes.count(num) != 1:
-			return False
+		if int(num) > 0:
+			if sRes.count(num) != 1:
+				return False
+		elif int(num) == 0:
+			if sRes.count(num) > 0:
+				return False
 	
 	return True
 
