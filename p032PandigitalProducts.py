@@ -1,18 +1,5 @@
 from collections import defaultdict
-
-def checkPandigital(multiplicand, multiplier, product):
-	sRes = str(product) + str(multiplicand) + str(multiplier)
-	nums = "0123456789"
-
-	for num in nums:
-		if int(num) > 0:
-			if sRes.count(num) != 1:
-				return False
-		elif int(num) == 0:
-			if sRes.count(num) > 0:
-				return False
-	
-	return True
+import pandigital
 
 def getPandigitalSum():
 	dResults = {}
@@ -20,7 +7,8 @@ def getPandigitalSum():
 	for multiplicand in range(2, 9999):
 		for multiplier in range(2, 9999):
 			product = multiplicand * multiplier
-			if checkPandigital(multiplicand, multiplier, product):
+			num = str(multiplicand) + str(multiplier) + str(product)
+			if pandigital.checkPandigital(num, 9):
 				dResults[product] = (multiplicand, multiplier)
 	
 	keys = dResults.keys()
