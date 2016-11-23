@@ -9,6 +9,6 @@ def doubleBasePalindromes(num):
 
 	return sum(lPal)
 
-tests = [1000]
+tests = [1000, 1000000]
 for num in tests:
 	print("The sum of all numbers less than {} which are palindromic in base 10 and base 2 is {}".format(num, doubleBasePalindromes(num)))
