@@ -2,23 +2,22 @@ from prime import getdPrimes
 
 def findTruncatablePrimes(numPrimes):
 	lPrimes = []
-	dPrimes = getdPrimes(10000000)
-	num = 11
-	
+	num = 37
+	dPrimes = getdPrimes(10 ** 8)
 	while len(lPrimes) < numPrimes:
-		if max(dPrimes) < num:
-			dPrimes = getdPrimes(num * 2)
 		if num in dPrimes:
 			sNum = str(num)
-			lTrunc = sNum
-			rTrunc = sNum
+			slTrunc = sNum
+			srTrunc = sNum
 			isTruncatable = True
 			for digit in sNum:
-				lTrunc = lTrunc[1:]
-				rTrunc = rTrunc[:-1]
+				slTrunc = slTrunc[1:]
+				srTrunc = srTrunc[:-1]
+				lTrunc = int(slTrunc)
+				rTrunc = int(srTrunc)
 
-				if len(lTrunc) > 0 and len(rTrunc) > 0:
-					isTruncatable = isTruncatable and int(lTrunc) in dPrimes and int(rTrunc) in dPrimes
+				if len(slTrunc) > 0 and len(srTrunc) > 0:
+					isTruncatable = isTruncatable and lTrunc in dPrimes and rTrunc in dPrimes
 					if not isTruncatable:
 						break
 
