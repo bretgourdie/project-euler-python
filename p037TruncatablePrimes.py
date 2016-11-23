@@ -2,7 +2,7 @@ from prime import getdPrimes
 
 def findTruncatablePrimes(numPrimes):
 	lPrimes = []
-	dPrimes = getdPrimes(1000000)
+	dPrimes = getdPrimes(10000000)
 	num = 11
 	
 	while len(lPrimes) < numPrimes:
@@ -19,6 +19,8 @@ def findTruncatablePrimes(numPrimes):
 
 				if len(lTrunc) > 0 and len(rTrunc) > 0:
 					isTruncatable = isTruncatable and int(lTrunc) in dPrimes and int(rTrunc) in dPrimes
+					if not isTruncatable:
+						break
 
 			if isTruncatable:
 				lPrimes.append(num)
