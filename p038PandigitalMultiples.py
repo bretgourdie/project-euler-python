@@ -1,15 +1,4 @@
-
-def checkPandigital(product):
-	nums = "0123456789"
-
-	for num in nums:
-		if int(num) > 0:
-			if product.count(num) != 1:
-				return False
-		elif int(num) == 0:
-			if product.count(num) > 0:
-				return False
-	return True
+import pandigital
 
 def findLargestPandigital(limit):
 	largestPan = -1
@@ -22,7 +11,7 @@ def findLargestPandigital(limit):
 			for ii in range(1, n+1):
 				sNum += str(num * ii)
 
-			if checkPandigital(sNum):
+			if pandigital.checkPandigital(sNum, 9):
 				largestPan = max(largestPan, int(sNum))
 
 			n += 1
