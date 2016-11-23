@@ -23,4 +23,4 @@ def getCircularPrimes(limit):
 
 tests = [100]
 for num in tests:
-	print("There are {} circular primes below {}".format(num, getCircularPrimes(num)))
+	print("There are {} circular primes below {}".format(getCircularPrimes(num), num))
