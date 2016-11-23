@@ -17,6 +17,13 @@ def getPrimes(n):
 
 	return primes
 
+def getdPrimes(n)
+	primes = getPrimes(n)
+
+	dPrimes = dict(zip(primes, [True] * len(primes)))
+
+	return dPrimes
+
 def createPrimeSieve(n):
 	primeSieve = [True] * n
 	
