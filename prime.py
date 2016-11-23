@@ -1,3 +1,19 @@
+import math
+
+def isPrime(n):
+	if n < 2:
+		return False
+	if n % 2 == 0:
+		return n == 2
+	
+	root = math.sqrt(n)
+
+	for ii in range(3, int(root)+1, 2):
+		if n % ii == 0:
+			return False
+	
+	return True
+	
 def findPrimeFactors(n):
 	primeFactors = []
 	ii = 2
@@ -30,8 +46,8 @@ def createPrimeSieve(n):
 	if len(primeSieve) > 0:
 		primeSieve[0] = False
 
-	for idx, isPrime in enumerate(primeSieve):
-		if isPrime:
+	for idx, numIsPrime in enumerate(primeSieve):
+		if numIsPrime:
 			curNumber = idx+1
 			curNumberSquared = curNumber ** 2
 			curNumberIndex = curNumberSquared - 1
@@ -47,8 +63,8 @@ def createPrimeSieve(n):
 def convertSieveToPrimes(sieve):
 	primes = []
 
-	for index, isPrime in enumerate(sieve):
-		if isPrime:
+	for index, numIsPrime in enumerate(sieve):
+		if numIsPrime:
 			primes.append(index+1)
 	
 	return primes
