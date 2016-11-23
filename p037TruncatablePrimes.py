@@ -1,11 +1,11 @@
-from prime import getdPrimes
+from prime import isPrime
 
 def findTruncatablePrimes(numPrimes):
 	lPrimes = []
 	num = 37
 	dPrimes = getdPrimes(10 ** 8)
 	while len(lPrimes) < numPrimes:
-		if num in dPrimes:
+		if isPrime(num):
 			sNum = str(num)
 			slTrunc = sNum
 			srTrunc = sNum
