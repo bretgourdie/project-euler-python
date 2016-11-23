@@ -17,7 +17,7 @@ def getPrimes(n):
 
 	return primes
 
-def getdPrimes(n)
+def getdPrimes(n):
 	primes = getPrimes(n)
 
 	dPrimes = dict(zip(primes, [True] * len(primes)))
