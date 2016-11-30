@@ -1,12 +1,14 @@
-from decimal import *
+def createChamp(limit):
+	champ = "."
 
-getcontext().prec = 1000000+2
-champ = Decimal(60499999499) / Decimal(490050000000)
-
-sChamp = str(champ)
+	for num in range(1, limit+1):
+		champ += str(num)
+	
+	return champ
 
 d = 1
 dx = 1
+sChamp = createChamp(1000000)
 
 while dx <= 1000000:
 	d *= int(sChamp[dx + 1])
