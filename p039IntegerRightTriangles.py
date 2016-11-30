@@ -20,6 +20,6 @@ def maxSolutions(limit):
 	return maxSolution[1]
 
 
-tests = [120]
+tests = [120, 1000]
 for num in tests:
 	print("The max solutions for p <= {} is p = {}".format(num, maxSolutions(num)))
