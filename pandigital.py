@@ -1,5 +1,5 @@
 
-def checkPandigital(product, checkToNumber):
+def checkPandigital(product, checkToNumber, includeZero=False):
 	numList = list(range(0, checkToNumber+1))
 	nums = ''.join(str(num) for num in numList)
 	sProduct = str(product)
@@ -9,7 +9,11 @@ def checkPandigital(product, checkToNumber):
 			if sProduct.count(num) != 1:
 				return False
 		elif int(num) == 0:
-			if sProduct.count(num) > 0:
-				return False
+                        if includeZero:
+                                if sProduct.count(num) != 1:
+                                        return False
+                        else:
+                                if sProduct.count(num) > 0:
+                                        return False
 	return True
 
