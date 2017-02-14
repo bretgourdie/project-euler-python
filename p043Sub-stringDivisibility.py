@@ -7,7 +7,8 @@ def getSumOfSubStringPandigitalNumbers(zeroToNPandigital, substringSize):
     #startingNumber = 10 ** zeroToNPandigital
     startingNumber = 1023456789
     endingNumber = 10 ** numDigits
-    lPrimes = getPrimes(17)
+    lRawPrimes = getPrimes(17)
+    lPrimes = sorted(lRawPrimes)
     lSubStringPandigitalNumbers = []
 
     for num in range(startingNumber, endingNumber):
@@ -16,7 +17,7 @@ def getSumOfSubStringPandigitalNumbers(zeroToNPandigital, substringSize):
         if isPandigital:
             print("\"{}\" is pandigital".format(num))
             primeSubStringDivisibility = True
-            for startDigit in range(substringSize - 1, numDigits - substringSize):
+            for startDigit in range(1, numDigits - substringSize + 1):
                 strNum = str(num)
                 lDigits = []
                 for offset in range(0, substringSize):
