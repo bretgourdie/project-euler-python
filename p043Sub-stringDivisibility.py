@@ -7,15 +7,13 @@ def getSumOfSubStringPandigitalNumbers(zeroToNPandigital, substringSize):
     #startingNumber = 10 ** zeroToNPandigital
     startingNumber = 1023456789
     endingNumber = 10 ** numDigits
-    lRawPrimes = getPrimes(17)
-    lPrimes = sorted(lRawPrimes)
+    lPrimes = getPrimes(17)
     lSubStringPandigitalNumbers = []
 
     for num in range(startingNumber, endingNumber):
         isPandigital = checkPandigital(num, zeroToNPandigital, includeZero=True)
 
         if isPandigital:
-            print("\"{}\" is pandigital".format(num))
             primeSubStringDivisibility = True
             for startDigit in range(1, numDigits - substringSize + 1):
                 strNum = str(num)
@@ -26,15 +24,19 @@ def getSumOfSubStringPandigitalNumbers(zeroToNPandigital, substringSize):
                 strSubstring = ''.join(lDigits)
                 iSubstring = int(strSubstring)
 
-                primeToDivideBy = lPrimes[startDigit - substringSize + 1]
+                numPrimeToDivideBy = startDigit - 1
+                primeToDivideBy = lPrimes[numPrimeToDivideBy]
                 isDivisible = iSubstring % primeToDivideBy == 0
                 
                 primeSubStringDivisibility = primeSubStringDivisibility and isDivisible
 
-                print("Digits {} become {} which is divisible by {}? {}".format(lDigits, iSubstring, primeToDivideBy, isDivisible))
+                #print("Digits {} become {} which is divisible by the {}th prime {}? {}".format(lDigits, iSubstring, numPrimeToDivideBy+1, primeToDivideBy, isDivisible))
 
-            print("\"{}\" was fully divisible? {}".format(num, primeSubStringDivisibility))
+                if not primeSubStringDivisibility:
+                    break
+
             if primeSubStringDivisibility:
+                print("\"{}\" was fully divisible".format(num))
                 lSubStringPandigitalNumbers.append(num)
 
     
