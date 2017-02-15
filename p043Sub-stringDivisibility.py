@@ -1,45 +1,24 @@
 from prime import getPrimes
 from pandigital import checkPandigital
+import itertools
 
 def getSumOfSubStringPandigitalNumbers(zeroToNPandigital, substringSize):
     numDigits = zeroToNPandigital + 1
 
-    #startingNumber = 10 ** zeroToNPandigital
-    startingNumber = 1023456789
-    endingNumber = 10 ** numDigits
     lPrimes = getPrimes(17)
+    lPandigitalNumbers = []
     lSubStringPandigitalNumbers = []
 
-    for num in range(startingNumber, endingNumber):
-        isPandigital = checkPandigital(num, zeroToNPandigital, includeZero=True)
+    lPandigitalNumbers = itertools.permutations([str(num) for num in range(0, 9+1)])
 
-        if isPandigital:
-            primeSubStringDivisibility = True
-            for startDigit in range(1, numDigits - substringSize + 1):
-                strNum = str(num)
-                lDigits = []
-                for offset in range(0, substringSize):
-                    lDigits.append(strNum[startDigit + offset])
+    for tNum in lPandigitalNumbers:
+        strNum = "".join(tNum)
+        print(strNum)
 
-                strSubstring = ''.join(lDigits)
-                iSubstring = int(strSubstring)
+    print("done")
 
-                numPrimeToDivideBy = startDigit - 1
-                primeToDivideBy = lPrimes[numPrimeToDivideBy]
-                isDivisible = iSubstring % primeToDivideBy == 0
-                
-                primeSubStringDivisibility = primeSubStringDivisibility and isDivisible
 
-                #print("Digits {} become {} which is divisible by the {}th prime {}? {}".format(lDigits, iSubstring, numPrimeToDivideBy+1, primeToDivideBy, isDivisible))
 
-                if not primeSubStringDivisibility:
-                    break
-
-            if primeSubStringDivisibility:
-                print("\"{}\" was fully divisible".format(num))
-                lSubStringPandigitalNumbers.append(num)
-
-    
     sumPandigital = sum(lSubStringPandigitalNumbers)
 
     return sumPandigital
