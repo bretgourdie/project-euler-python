@@ -13,10 +13,21 @@ def getSumOfSubStringPandigitalNumbers(zeroToNPandigital, substringSize):
 
     for tNum in lPandigitalNumbers:
         strNum = "".join(tNum)
-        print(strNum)
 
-    print("done")
+        endDigit = len(strNum) - substringSize
 
+        hasBeenSubstringPandigital = True
+        for curDigit in range(1, endDigit+1):
+            curPrime = lPrimes[curDigit-1]
+            curEndDigit = curDigit + substringSize
+            curNumber = int(strNum[curDigit:curEndDigit])
+
+            isSubstringPandigital = curNumber % curPrime == 0
+
+            hasBeenSubstringPandigital = isSubstringPandigital and hasBeenSubstringPandigital
+
+        if hasBeenSubstringPandigital:
+            lSubStringPandigitalNumbers.append(int(strNum))
 
 
     sumPandigital = sum(lSubStringPandigitalNumbers)
